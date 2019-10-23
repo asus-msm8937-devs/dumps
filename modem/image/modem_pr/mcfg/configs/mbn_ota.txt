@@ -1,0 +1,15 @@
+mbn/mcfg_sw/generic/common/row/gen_3gpp/mcfg_sw.mbn
+mbn/mcfg_sw/generic/common/row/cmcc_volt/mcfg_sw.mbn
+mbn/mcfg_sw/generic/russia/beeline/gen_3gpp/mcfg_sw.mbn
+mbn/mcfg_sw/generic/russia/megafon/volte/mcfg_sw.mbn
+mbn/mcfg_sw/generic/apac/kddi/commerci/mcfg_sw.mbn
+mbn/mcfg_sw/generic/sea/singtel/commerci/sg/mcfg_sw.mbn
+mbn/mcfg_sw/generic/sea/starhub/volte/singapor/mcfg_sw.mbn
+mbn/mcfg_sw/generic/sea/m1/volte/singapor/mcfg_sw.mbn
+mbn/mcfg_sw/generic/eu/tim/volte/italy/mcfg_sw.mbn
+mbn/mcfg_sw/generic/eu/vodafone/volte/turkey/mcfg_sw.mbn
+mbn/mcfg_sw/generic/eu/vodafone/volte/italy/mcfg_sw.mbn
+mbn/mcfg_sw/generic/apac/sbm/commerci/mcfg_sw.mbn
+mbn/mcfg_sw/generic/common/row/g_mobile/mcfg_sw.mbn
+mbn/mcfg_sw/generic/apac/kddi/nonevolt/mcfg_sw.mbn
+mbn/mcfg_sw/generic/apac/kddi/bwa/mcfg_sw.mbn
