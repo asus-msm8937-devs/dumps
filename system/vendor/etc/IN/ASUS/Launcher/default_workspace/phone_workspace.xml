@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites>
+
+    <!-- screen [0] -->
+    <appwidget
+        className="com.asus.weathertime.WeatherWidgetProviderPhone"
+        packageName="com.asus.weathertime"
+        screen="1"
+        spanX="4"
+        spanY="1"
+        x="0"
+        y="0" />
+
+    <appwidget
+        className="com.google.android.googlequicksearchbox.SearchWidgetProvider"
+        packageName="com.google.android.googlequicksearchbox"
+        screen="1"
+        spanX="4"
+        spanY="1"
+        x="0"
+        y="1" />
+
+    <folder
+        screen="1"
+        title="Google"
+        x="0"
+        y="4" >
+        <!-- Search -->
+        <favorite
+            className="com.google.android.googlequicksearchbox.SearchActivity"
+            packageName="com.google.android.googlequicksearchbox" />
+        <!-- Gmail -->
+        <favorite
+            className="com.google.android.gm.ConversationListActivityGmail"
+            packageName="com.google.android.gm" />
+        <!-- Maps -->
+        <favorite
+            className="com.google.android.maps.MapsActivity"
+            packageName="com.google.android.apps.maps" />
+        <!-- YouTube -->
+        <favorite
+            className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"
+            packageName="com.google.android.youtube" />
+        <!-- Drive -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs" />
+        <!-- Play music -->
+        <favorite
+            className="com.android.music.activitymanagement.TopLevelActivity"
+            packageName="com.google.android.music" />
+        <!-- Play Movies -->
+        <favorite
+            className="com.google.android.youtube.videos.EntryPoint"
+            packageName="com.google.android.videos" />
+        <!-- Duo -->
+        <favorite
+            className="com.google.android.apps.tachyon.MainActivity"
+            packageName="com.google.android.apps.tachyon" />
+        <!-- Photos -->
+        <favorite
+            className="com.google.android.apps.photos.home.HomeActivity"
+            packageName="com.google.android.apps.photos" />
+        <!-- Google Calendar -->
+        <favorite
+            className="com.android.calendar.AllInOneActivity"
+            packageName="com.google.android.calendar" />
+        <!-- Docs -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.docs" />
+        <!-- Sheets -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.sheets" />
+        <!-- Slides -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.slides" />
+        <!-- Keeps -->
+        <favorite
+            className="com.google.android.keep.activities.BrowseActivity"
+            packageName="com.google.android.keep" />
+    </folder>
+
+    <!-- Google Play Store -->
+    <favorite
+        className="com.android.vending.AssetBrowserActivity"
+        packageName="com.android.vending"
+        screen="1"
+        x="1"
+        y="4" />
+
+    <!-- PowerSaver -->
+    <favorite
+        className="com.asus.powersaver.PowerSaverSettings"
+        packageName="com.asus.powersaver"
+        screen="1"
+        x="2"
+        y="4" />
+
+    <!-- SelfieMaster -->
+    <favorite
+        className="com.asus.selfiemaster.SelfieMasterActivity"
+        packageName="com.asus.selfiemaster"
+        screen="1"
+        x="3"
+        y="4" />
+
+    <!-- Screen 2 -->
+    <folder
+        screen="2"
+        title="ASUS"
+        x="0"
+        y="4" >
+
+        <!-- Calculator -->
+        <favorite
+            className="com.asus.calculator.Calculator"
+            packageName="com.asus.calculator" />
+        <!-- Clock -->
+        <favorite
+            className="com.asus.deskclock.DeskClock"
+            packageName="com.asus.deskclock" />
+        <!-- File Manager -->
+        <favorite
+            className="com.asus.filemanager.activity.FileManagerActivity"
+            packageName="com.asus.filemanager" />
+        <!-- Gallery -->
+        <favorite
+            className="com.asus.gallery.app.EPhotoActivity"
+            packageName="com.asus.gallery" />
+        <!-- Mobile Manager -->
+        <favorite
+            className="com.asus.mobilemanager.entry.FunctionActivity"
+            packageName="com.asus.mobilemanager" />
+        <!-- MiniMovie -->
+        <favorite
+            className="com.asus.microfilm.tab.TabMainActivity"
+            packageName="com.asus.microfilm" />
+        <!-- PhotoCollage -->
+        <favorite
+            className="com.asus.collage.app.CollageMainTabActivity"
+            packageName="com.asus.collage" />
+        <!-- Sound Recorder -->
+        <favorite
+            className="com.asus.soundrecorder.AsusRecorder"
+            packageName="com.asus.soundrecorder" />
+        <!-- Themes -->
+        <favorite
+            className="com.asus.themeapp.ThemeAppActivity"
+            packageName="com.asus.themeapp" />
+        <!-- Weather -->
+        <favorite
+            className="com.asus.weathertime.WeatherTimeSettings"
+            packageName="com.asus.weathertime" />
+        <!-- ZenFit -->
+        <favorite
+            className="com.asus.wellness.EntrySelector"
+            packageName="com.asus.wellness" />
+        <!-- ZenCircle -->
+        <favorite
+            className="com.asus.zencircle.EntryActivity"
+            packageName="com.asus.zencircle" />
+        <!-- MyASUS = Service Center -->
+        <favorite
+            className="com.asus.ia.asusapp.Phone.Init.RootActivity"
+            packageName="com.asus.ia.asusapp" />
+        <!-- ZenFone Care = ZenUI FAQ -->
+        <favorite
+            className="com.asus.userfeedback.MainActivityDefaultLauncher"
+            packageName="com.asus.userfeedback" />
+        <!-- ZenTalk -->
+        <favorite
+            className="com.asus.zentalk.MainActivityAlias"
+            packageName="com.asus.zentalk" />
+    </folder>
+
+    <!-- Facebook -->
+    <favorite
+        className="com.facebook.katana.LoginActivity"
+        packageName="com.facebook.katana"
+        screen="2"
+        x="1"
+        y="4" />
+
+    <!-- Facebook Messenger -->
+    <favorite
+        className="com.facebook.orca.auth.StartScreenActivity"
+        packageName="com.facebook.orca"
+        screen="2"
+        x="2"
+        y="4" />
+
+    <!-- Go2Pay -->
+    <favorite
+        className="com.generalmobi.go2pay.MainActivity"
+        packageName="com.generalmobi.go2pay"
+        screen="2"
+        x="3"
+        y="4" />
+
+    <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
+    <favorite
+        className="com.android.contacts.activities.DialtactsActivity"
+        container="-103"
+        packageName="com.asus.contacts"
+        screen="0"
+        x="0"
+        y="0" />
+    <favorite
+        className="com.google.android.apps.messaging.ui.ConversationListActivity"
+        container="-103"
+        packageName="com.google.android.apps.messaging"
+        screen="1"
+        x="1"
+        y="0" />
+    <favorite
+        className="com.google.android.apps.chrome.Main"
+        container="-103"
+        packageName="com.android.chrome"
+        screen="3"
+        x="3"
+        y="0" />
+    <favorite
+        className="com.asus.camera.CameraApp"
+        container="-103"
+        packageName="com.asus.camera"
+        screen="4"
+        x="4"
+        y="0" />
+
+</favorites>

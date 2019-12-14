@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<allapps>
+    <folder
+        title="Google">
+        <!-- Google search -->
+        <app
+            className="com.google.android.googlequicksearchbox.SearchActivity"
+            packageName="com.google.android.googlequicksearchbox" />
+        <!-- Gmail -->
+        <app
+            className="com.google.android.gm.ConversationListActivityGmail"
+            packageName="com.google.android.gm" />
+        <!-- Maps -->
+        <app
+            className="com.google.android.maps.MapsActivity"
+            packageName="com.google.android.apps.maps" />
+        <!-- Youtube -->
+        <app
+            className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"
+            packageName="com.google.android.youtube" />
+        <!-- Drive -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs" />
+        <!-- Play music -->
+        <app
+            className="com.android.music.activitymanagement.TopLevelActivity"
+            packageName="com.google.android.music" />
+        <!-- Play Movies -->
+        <app
+            className="com.google.android.youtube.videos.EntryPoint"
+            packageName="com.google.android.videos" />
+        <!-- Duo -->
+        <app
+            className="com.google.android.apps.tachyon.MainActivity"
+            packageName="com.google.android.apps.tachyon" />
+        <!-- Photos -->
+        <app
+            className="com.google.android.apps.photos.home.HomeActivity"
+            packageName="com.google.android.apps.photos" />
+        <!-- Google calendar -->
+        <app
+            className="com.android.calendar.AllInOneActivity"
+            packageName="com.google.android.calendar" />
+        <!-- Android Pay -->
+        <app
+            className="com.google.commerce.tapandpay.android.cardlist.CardListActivity"
+            packageName="com.google.android.apps.walletnfcrel" />
+        <!-- Voice search -->
+        <app
+            className="com.google.android.googlequicksearchbox.VoiceSearchActivity"
+            packageName="com.google.android.googlequicksearchbox" />
+        <!-- Docs -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.docs" />
+        <!-- Sheet -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.sheets" />
+        <!-- Slide -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.slides" />
+        <!-- Keeps -->
+        <app
+            className="com.google.android.keep.activities.BrowseActivity"
+            packageName="com.google.android.keep" />
+    </folder>
+    <folder
+        title="ASUS">
+        <!-- Calculator -->
+        <app
+            className="com.asus.calculator.Calculator"
+            packageName="com.asus.calculator" />
+        <!-- Clock -->
+        <app
+            className="com.asus.deskclock.DeskClock"
+            packageName="com.asus.deskclock" />
+        <!-- Contacts -->
+        <app
+            className="com.android.contacts.activities.PeopleActivity"
+            packageName="com.asus.contacts" />
+        <!-- File Manager -->
+        <app
+            className="com.asus.filemanager.activity.FileManagerActivity"
+            packageName="com.asus.filemanager" />
+        <!-- Mobile Manager -->
+        <app
+            className="com.asus.mobilemanager.entry.FunctionActivity"
+            packageName="com.asus.mobilemanager" />
+        <!-- Sound Recorder -->
+        <app
+            className="com.asus.soundrecorder.AsusRecorder"
+            packageName="com.asus.soundrecorder" />
+        <!-- Themes -->
+        <app
+            className="com.asus.themeapp.ThemeAppActivity"
+            packageName="com.asus.themeapp" />
+        <!-- Weather -->
+        <app
+            className="com.asus.weathertime.WeatherTimeSettings"
+            packageName="com.asus.weathertime" />
+    </folder>
+</allapps>

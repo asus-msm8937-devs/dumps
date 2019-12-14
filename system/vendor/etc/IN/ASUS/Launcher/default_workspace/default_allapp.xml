@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<allapps>
+    <folder
+        title="Google">
+        <!-- Google search -->
+        <app
+            className="com.google.android.googlequicksearchbox.SearchActivity"
+            packageName="com.google.android.googlequicksearchbox" />
+        <!-- Gmail -->
+        <app
+            className="com.google.android.gm.ConversationListActivityGmail"
+            packageName="com.google.android.gm" />
+        <!-- Maps -->
+        <app
+            className="com.google.android.maps.MapsActivity"
+            packageName="com.google.android.apps.maps" />
+        <!-- Youtube -->
+        <app
+            className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"
+            packageName="com.google.android.youtube" />
+        <!-- Drive -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs" />
+        <!-- Play music -->
+        <app
+            className="com.android.music.activitymanagement.TopLevelActivity"
+            packageName="com.google.android.music" />
+        <!-- Play Movies -->
+        <app
+            className="com.google.android.youtube.videos.EntryPoint"
+            packageName="com.google.android.videos" />
+        <!-- Duo -->
+        <app
+            className="com.google.android.apps.tachyon.MainActivity"
+            packageName="com.google.android.apps.tachyon" />
+        <!-- Photos -->
+        <app
+            className="com.google.android.apps.photos.home.HomeActivity"
+            packageName="com.google.android.apps.photos" />
+        <!-- Google calendar -->
+        <app
+            className="com.android.calendar.AllInOneActivity"
+            packageName="com.google.android.calendar" />
+        <!-- Voice search -->
+        <app
+            className="com.google.android.googlequicksearchbox.VoiceSearchActivity"
+            packageName="com.google.android.googlequicksearchbox" />
+        <!-- Docs -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.docs" />
+        <!-- Sheet -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.sheets" />
+        <!-- Slide -->
+        <app
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.slides" />
+        <!-- Keeps -->
+        <app
+            className="com.google.android.keep.activities.BrowseActivity"
+            packageName="com.google.android.keep" />
+    </folder>
+    <folder
+        title="ASUS">
+        <!-- LastRuler -->
+        <app
+            className="com.asus.laserruler.LaserRulerActivity"
+            packageName="com.asus.laserruler" />
+        <!-- MiniMovie -->
+        <app
+            className="com.asus.microfilm.tab.TabMainActivity"
+            packageName="com.asus.microfilm" />
+        <!-- PhotoCollage -->
+        <app
+            className="com.asus.collage.app.CollageMainTabActivity"
+            packageName="com.asus.collage" />
+        <!-- ZenFit -->
+        <app
+            className="com.asus.wellness.EntrySelector"
+            packageName="com.asus.wellness" />
+        <!-- ZenCircle -->
+        <app
+            className="com.asus.zencircle.EntryActivity"
+            packageName="com.asus.zencircle" />
+        <!-- Weather -->
+        <app
+            className="com.asus.weathertime.WeatherTimeSettings"
+            packageName="com.asus.weathertime" />
+        <!-- WebStorage -->
+        <app
+            className="net.yostore.aws.view.common.SplashActivity"
+            packageName="com.ecareme.asuswebstorage" />
+        <!-- MyASUS = Service Center -->
+        <app
+            className="com.asus.ia.asusapp.Phone.Init.RootActivity"
+            packageName="com.asus.ia.asusapp" />
+        <!-- ZenFone Care = ZenUI FAQ -->
+        <app
+            className="com.asus.userfeedback.MainActivityDefaultLauncher"
+            packageName="com.asus.userfeedback" />
+        <!-- ZenTalk -->
+        <app
+            className="com.asus.zentalk.MainActivityAlias"
+            packageName="com.asus.zentalk" />
+    </folder>
+    <folder
+        title="Apps4U">
+        <!-- Facebook -->
+        <app
+            className="com.facebook.katana.LoginActivity"
+            packageName="com.facebook.katana" />
+        <!-- Facebook Messenger -->
+        <app
+            className="com.facebook.orca.auth.StartScreenActivity"
+            packageName="com.facebook.orca" />
+        <!-- Instagram -->
+        <app
+            className="com.instagram.android.activity.MainTabActivity"
+            packageName="com.instagram.android" />
+    </folder>
+</allapps>
