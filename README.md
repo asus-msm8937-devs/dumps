@@ -1,0 +1,13 @@
+# msm8937_64-user 9 PPR1.180610.009 16.00.1906.411-20190712 release-keys
+- manufacturer: asus
+- platform: msm8937
+- codename: 
+- flavor: msm8937_64-user
+- release: 9
+- id: PPR1.180610.009
+- incremental: 16.00.1906.411
+- tags: release-keys
+- fingerprint: 
+- brand: asus
+- branch: msm8937_64-user-9-PPR1.180610.009-16.00.1906.411-20190712-release-keys
+- repo: asus__dump
