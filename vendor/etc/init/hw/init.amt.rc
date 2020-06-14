@@ -1,0 +1,296 @@
+#Copyright (C) 2019 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+# action trigger order:
+# early-init -> init -> late-init -> early-fs -> factory-fs -> fs -> post-fs -> late-fs -> post-fs-data ->
+# load_persist_props_action -> zygote-start -> firmware_mounts_complete -> early-boot -> boot -> mmi
+
+import /vendor/etc/init/hw/init.amt.target.rc
+
+on early-init
+    mkdir /mnt/vendor/factory 0755 system system
+
+on fs
+    wait /dev/block/bootdevice/by-name/factory
+    mount ext4 /dev/block/bootdevice/by-name/factory /mnt/vendor/factory noatime nosuid nodev barrier=1
+    restorecon_recursive /mnt/vendor/factory
+#wait /dev/block/bootdevice/by-name/priv
+#    mount ext4 /dev/block/bootdevice/by-name/priv /priv nosuid nodev noatime barrier=1
+#    restorecon_recursive /priv
+
+    chmod 0660 /mnt/vendor/factory/proinfo
+    chown root system /mnt/vendor/factory/proinfo
+    chmod 0660 /mnt/vendor/factory/proinfo_backup
+    chown root system /mnt/vendor/factory/proinfo_backup
+    chmod 0660 /mnt/vendor/factory/Voucher_enc.bin
+    chown system system /mnt/vendor/factory/Voucher_enc.bin
+
+    # Add by AMT.meng.lv,12/05/2019,for "vulkan and opengles issue between 8917, 8940 and 8937 chips" begin
+    mkdir /mnt/vendor/factory/graphics 0755 system root
+    # Add by AMT.meng.lv,12/05/2019,for "vulkan and opengles issue between 8917, 8940 and 8937 chips" end
+    start nvram_country
+
+on post-fs
+    wait /oem
+    start set_dynamic_prop
+
+on post-fs-data
+    ## TODO
+
+
+on early-boot
+    ## TODO
+
+
+#add by zhangmeilong for gesture switch
+#on property:persist.asus.dclick=*
+#    write /proc/android_touch/GESTURE ${persist.asus.dclick}${persist.asus.swipeup}${persist.gesture.asus.type}
+#on property:persist.asus.swipeup=*
+#   write /proc/android_touch/GESTURE ${persist.asus.dclick}${persist.asus.swipeup}${persist.gesture.asus.type}
+on property:persist.asus.gesture.switch=1
+   write /proc/android_touch/SMWP 1
+   write /proc/android_touch/GESTURE 11111111
+on property:persist.asus.gesture.switch=0
+   write /proc/android_touch/SMWP 0
+   write /proc/android_touch/GESTURE 00000000
+
+on boot
+    ## TODO
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    chmod 0660 /sys/class/power_supply/battery/charging_enabled
+
+
+#add by suyumei begin
+    chown system system /asusfw
+    chown system system /asusfw/*
+    chmod 0775 /asusfw
+    chmod 0775 /asusfw/*
+
+    chown system system /asusfw/asusfw_version
+    chmod 0775 /asusfw/asusfw_version
+
+    chown system system /xrom
+    chmod 0755 /xrom
+
+    chown system system /ADF
+    chown system system /ADF/*
+    chmod 0775 /ADF
+    chmod 0775 /ADF/*
+
+    chown system system /APD
+    chown system system /APD/*
+
+    chown system system /APD/DemoVersion.txt
+    chown system system /APD/DemoContent.txt
+    chown system system /APD/config.xml
+    chown system system /APD/Media
+    chown system system /APD/Media/m_01.jpg
+    chown system system /APD/Media/m_02.jpg
+    chown system system /APD/Media/m_03.jpg
+    chown system system /APD/Media/m_04.jpg
+    chown system system /APD/Media/m_05.jpg
+    chown system system /APD/Media/m_06.jpg
+    chown system system /APD/Media/m_07.jpg
+    chown system system /APD/Media/m_08.jpg
+    chown system system /APD/Media/m_09.jpg
+    chown system system /APD/Media/m_10.jpg
+    chown system system /APD/Media/m_11.jpg
+    chown system system /APD/Media/m_12.jpg
+    chown system system /APD/Media/m_13.jpg
+    chown system system /APD/Media/m_14.jpg
+    chown system system /APD/Media/m_15.jpg
+
+    chown system system /APD/Media/m_1.jpg
+    chown system system /APD/Media/m_2.jpg
+    chown system system /APD/Media/m_3.jpg
+    chown system system /APD/Media/m_4.jpg
+    chown system system /APD/Media/m_5.jpg
+    chown system system /APD/Media/m_6.jpg
+    chown system system /APD/Media/m_7.jpg
+    chown system system /APD/Media/m_8.jpg
+    chown system system /APD/Media/m_9.jpg
+    chown system system /APD/Media/m_JonasBlue-ByYourSide-feat-RAYE.mp3
+
+    chown system system /APD/Movies
+    chown system system /APD/Movies/demo-video-screensaver.mp4
+    chown system system /APD/Movies/demo-video-screensaver_fr_FR.srt
+    chown system system /APD/Movies/demo-video-screensaver_hu_HU.srt
+    chown system system /APD/Movies/demo-video-screensaver_in_ID.srt
+    chown system system /APD/Movies/demo-video-screensaver_it_IT.srt
+    chown system system /APD/Movies/demo-video-screensaver_ja_JP.srt
+    chown system system /APD/Movies/demo-video-screensaver_pt_PT.srt
+    chown system system /APD/Movies/demo-video-screensaver_vi_VN.srt
+    chown system system /APD/md5CheckValue.md5
+    chown system system /APD/Movies/demo-video-screensaver_cs_CZ.srt
+    chown system system /APD/Movies/demo-video-screensaver_es_ES.srt
+    chown system system /APD/Movies/demo-video-screensaver_pt_BR.srt
+    chown system system /APD/Movies/demo-video-screensaver_ru_RU.srt
+    chown system system /APD/Movies/demo-video-screensaver_th_TH.srt
+    chown system system /APD/Movies/demo-video-screensaver_zh_TW.srt
+    chown system system /APD/Movies/demo-video-screensaver_uk_UA.srt
+    chown system system /APD/Movies/demo-video-screensaver_pl_PL.srt
+    chown system system /APD/Movies/demo-video-screensaver_de_DE.srt
+    chown system system /APD/Movies/ZB630KL_ZB631KL_Romanian.srt
+    chown system system /APD/APD_V3.5.0.01.zip.md5
+    chmod 0775 /APD/APD_V3.5.0.01.zip.md5
+    chmod 0775 /APD/md5CheckValue.md5
+    chmod 0775 /APD/DemoVersion.txt
+    chmod 0775 /APD/DemoContent.txt
+    chmod 0775 /APD/config.xml
+    chmod 0775 /APD/Media
+    chmod 0775 /APD/Media/m_01.jpg
+    chmod 0775 /APD/Media/m_02.jpg
+    chmod 0775 /APD/Media/m_03.jpg
+    chmod 0775 /APD/Media/m_04.jpg
+    chmod 0775 /APD/Media/m_05.jpg
+    chmod 0775 /APD/Media/m_06.jpg
+    chmod 0775 /APD/Media/m_07.jpg
+    chmod 0775 /APD/Media/m_08.jpg
+    chmod 0775 /APD/Media/m_09.jpg
+    chmod 0775 /APD/Media/m_10.jpg
+    chmod 0775 /APD/Media/m_11.jpg
+    chmod 0775 /APD/Media/m_12.jpg
+    chmod 0775 /APD/Media/m_13.jpg
+    chmod 0775 /APD/Media/m_14.jpg
+    chmod 0775 /APD/Media/m_15.jpg
+
+    chmod 0775 /APD/Media/m_1.jpg
+    chmod 0775 /APD/Media/m_2.jpg
+    chmod 0775 /APD/Media/m_3.jpg
+    chmod 0775 /APD/Media/m_4.jpg
+    chmod 0775 /APD/Media/m_5.jpg
+    chmod 0775 /APD/Media/m_6.jpg
+    chmod 0775 /APD/Media/m_7.jpg
+    chmod 0775 /APD/Media/m_8.jpg
+    chmod 0775 /APD/Media/m_9.jpg
+    chmod 0775 /APD/Media/m_JonasBlue-ByYourSide-feat-RAYE.mp3
+
+    chmod 0775 /APD/Movies
+    chmod 0775 /APD/Movies/demo-video-screensaver.mp4
+    chmod 0775 /APD/Movies/demo-video-screensaver_fr_FR.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_hu_HU.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_in_ID.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_it_IT.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_ja_JP.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_pt_PT.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_vi_VN.srt
+
+    chmod 0775 /APD/Movies/demo-video-screensaver_cs_CZ.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_es_ES.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_pt_BR.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_ru_RU.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_th_TH.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_zh_TW.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_uk_UA.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_pl_PL.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_de_DE.srt
+    chmod 0775 /APD/Movies/ZB630KL_ZB631KL_Romanian.srt
+    chmod 0775 /APD
+    chmod 0775 /APD/*
+
+
+    chown system system /factory
+    chown system system /factory/*
+    chmod 0775 /factory
+    chmod 0775 /factory/*
+
+    chmod 0666 /proc/aging_power_test/Charging_ChargeState
+    chmod 0666 /proc/aging_power_test/Charging_DemoApp_ChargeState
+
+#chown system system /priv
+#    chown system system /priv/*
+#    chmod 0775 /priv
+#    chmod 0775 /priv/*
+
+#add by suyumei end
+
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+
+service nvram_country system/vendor/bin/nvram_country
+    user system
+    group system
+    oneshot
+    disabled
+
+service set_dynamic_prop /system/vendor/bin/set_dynamic_prop
+    user system
+    group system
+    oneshot
+    disabled
+
+# dihw add for catch powerlog in debug version, temp use with setenforce 0
+service getpowerlog /system/bin/getpowerlog.sh
+    class main
+    user system
+    group system
+    disabled
+    oneshot
+    seclabel u:r:dumpstate:s0
+
+on property:persist.sys.offlinelog.power=1
+    start getpowerlog
+# dihw add end
+
+on property:persist.sys.enableAPD=1
+     write /proc/aging_power_test/Charging_DemoApp_ChargeState 1
+
+on property:persist.sys.enableAPD=0
+     write /proc/aging_power_test/Charging_DemoApp_ChargeState 0
+
+on property:ro.product.board=MSM8917
+    # vulkan related libs
+    symlink /vendor/lib/hw/8917/vulkan.msm8917.so                                  /mnt/vendor/factory/graphics/vulkan.msm8937.so
+    symlink /vendor/lib64/hw/8917/vulkan.msm8917.so                                /mnt/vendor/factory/graphics/vulkan.msm8937_64.so
+# Add by AMT.meng.lv,12/05/2019,for "vulkan and opengles issue between 8917, 8940 and 8937 chips" begin
+on property:ro.product.board=MSM8937
+    # opengles aep feature config
+    symlink /vendor/etc/permissions/8937/android.hardware.opengles.aep.xml         /mnt/vendor/factory/graphics/android.hardware.opengles.aep.xml
+    # vulkan features config
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.level-0.xml       /mnt/vendor/factory/graphics/android.hardware.vulkan.level-0.xml
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.version-1_0_3.xml /mnt/vendor/factory/graphics/android.hardware.vulkan.version-1_0_3.xml
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.version-1_1.xml   /mnt/vendor/factory/graphics/android.hardware.vulkan.version-1_1.xml
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.compute-0.xml     /mnt/vendor/factory/graphics/android.hardware.vulkan.compute-0.xml
+    # vulkan related libs
+    symlink /vendor/lib/hw/8937/vulkan.msm8937.so                                  /mnt/vendor/factory/graphics/vulkan.msm8937.so
+    symlink /vendor/lib64/hw/8937/vulkan.msm8937.so                                /mnt/vendor/factory/graphics/vulkan.msm8937_64.so
+
+on property:ro.product.board=MSM8940
+    # opengles aep feature config
+    symlink /vendor/etc/permissions/8937/android.hardware.opengles.aep.xml         /mnt/vendor/factory/graphics/android.hardware.opengles.aep.xml
+    # vulkan features config
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.level-0.xml       /mnt/vendor/factory/graphics/android.hardware.vulkan.level-0.xml
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.version-1_0_3.xml /mnt/vendor/factory/graphics/android.hardware.vulkan.version-1_0_3.xml
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.version-1_1.xml   /mnt/vendor/factory/graphics/android.hardware.vulkan.version-1_1.xml
+    symlink /vendor/etc/permissions/8937/android.hardware.vulkan.compute-0.xml     /mnt/vendor/factory/graphics/android.hardware.vulkan.compute-0.xml
+    # vulkan related libs
+    symlink /vendor/lib/hw/8937/vulkan.msm8937.so                                  /mnt/vendor/factory/graphics/vulkan.msm8937.so
+    symlink /vendor/lib64/hw/8937/vulkan.msm8937.so                                /mnt/vendor/factory/graphics/vulkan.msm8937_64.so
+
+on property:ro.vendor.build.fingerprint=* && property:ro.product.system.brand=asus
+    write /mnt/vendor/factory/fingerprint_for_gsi ${ro.vendor.build.fingerprint}
+    chown system system /mnt/vendor/factory/fingerprint_for_gsi
+    chmod 0660 /mnt/vendor/factory/fingerprint_for_gsi
+
+# Add by AMT.meng.lv,12/05/2019,for "vulkan and opengles issue between 8917, 8940 and 8937 chips" end
+
+on property:ro.product.device=ASUS_X00P_1
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+on property:ro.product.device=ASUS_X00P_2
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+on property:ro.product.device=ASUS_X00P_3
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+on property:ro.product.device=ASUS_X00P_4
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+on property:ro.product.device=ASUS_X00P_5
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+#on property:ro.product.device=ASUS_X00P_6
+#    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+on property:ro.product.device=ASUS_X00P_7
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+on property:ro.product.device=ASUS_X00P_8
+    symlink /vendor/etc/permissions/wait/android.hardware.sensor.gyroscope.xml    /mnt/vendor/factory/android.hardware.sensor.gyroscope.xml
+

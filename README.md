@@ -1,0 +1,13 @@
+# msm8937_64-user 10 QKQ1.191002.002 17.00.2003.23-20200401 release-keys
+- manufacturer: asus
+- platform: msm8937
+- codename: ASUS_X00PD
+- flavor: msm8937_64-user
+- release: 10
+- id: QKQ1.191002.002
+- incremental: 17.00.2003.23-20200401
+- tags: release-keys
+- fingerprint: 
+- brand: asus
+- branch: msm8937_64-user-10-QKQ1.191002.002-17.00.2003.23-20200401-release-keys
+- repo: asus_asus_x00pd_dump
