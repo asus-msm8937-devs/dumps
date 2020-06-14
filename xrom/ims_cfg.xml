@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<carrier_config_list>
+    <version>musca001_001</version>
+    <!-- FET -->
+    <carrier_config mcc="466" mnc="01">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_roaming_available_bool" value="true" />
+    </carrier_config>
+    <!-- TWM -->
+    <carrier_config mcc="466" mnc="97">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="false" />
+        <boolean name="carrier_wfc_ims_roaming_available_bool" value="false" />
+    </carrier_config>
+    <!-- CHT -->
+    <carrier_config mcc="466" mnc="92">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_roaming_available_bool" value="true" />
+    </carrier_config>
+    <!-- GT -->
+    <carrier_config mcc="466" mnc="05">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_roaming_available_bool" value="true" />
+    </carrier_config>
+    <!-- T Star -->
+    <carrier_config mcc="466" mnc="89">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="false" />
+        <boolean name="carrier_wfc_ims_roaming_available_bool" value="false" />
+    </carrier_config>
+    <!-- modify by yuandetian@wind_mobi.com 20180402 feature#10339 begin -->
+    <!-- Vodafone -->
+    <carrier_config mcc="222" mnc="10">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="false" />
+        <boolean name="carrier_wfc_ims_roaming_available_bool" value="false" />
+    </carrier_config>
+    <!-- modify by yuandetian@wind_mobi.com 20180402 feature#10339 end -->
+</carrier_config_list>

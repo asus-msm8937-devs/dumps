@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!--  liqiang@wind-mobi.com 20171204 begin -->
+<!--
+    Copyright (c) 2016-2017 Qualcomm Technologies, Inc.
+    All Rights Reserved.
+    Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<!--
+#
+# All support test cases list(include PCBA and UI): total num: 55
+#
+#[AUDIO_HEADSET_PLAYTONE]
+#[AUDIO_HANDSET_PLAYTONE]
+#[AUDIO_SPEAKER_PLAYTONE]
+#[AUDIO_HEADSET_MIC_RECORD]
+#[AUDIO_PRIMARY_MIC_RECORD]
+#[AUDIO_NOISE_MIC_RECORD]
+#[AUDIO_TOP_MIC_RECORD]
+#[AUDIO_SPEAKER_PRIMARY_MIC_LOOPBACK]
+#[AUDIO_HANDSET_PRIMARY_MIC_LOOPBACK]
+#[AUDIO_HEADSET_SEAKER_HEADSET_MIC_LOOPBACK]
+#[AUDIO_SPEAKER_NOISE_MIC_LOOPBACK]
+#[AUDIO_HANDSET_NOISE_MIC_LOOPBACK]
+#[AUDIO_SPEAKER_TOP_MIC_LOOPBACK]
+#[AUDIO_HANDSET_TOP_MIC_LOOPBACK]
+#[BATTERY]
+#[BUTTON_BACKLIGHT]
+#[BLUETOOTH]
+#[CAMERA_BACK_MAIN]
+#[CAMERA_BACK_AUX]
+#[CAMERA_FRONT]
+#[CAMERA_BACK_MAIN_SNAPSHOT]
+#[CAMERA_FRONT_SNAPSHOT]
+#[CPU]
+#[EMMC]
+#[FM]
+#[FLASHLIGHT]
+#[FLASHLIGHT_1]
+#[GYROSCOPE]
+#[GSENSOR]
+#[GPS]
+#[KEY]
+#[KEY_HEADSET]
+#[LED_RED]
+#[LED_GREEN]
+#[LED_BLUE]
+#[LCD]
+#[LCD_BLUE]
+#[LCD_BLACK]
+#[LCD_BACKLIGHT]
+#[LCD_IMAGE]
+#[LCD_RED]
+#[LCD_GREEN]
+#[LSENSOR]
+#[MSENSOR]
+#[MEMORY]
+#[NFC]
+#[PSENSOR]
+#[SDCARD]
+#[SIMCARD1]
+#[SIMCARD2]
+#[SMB]
+#[SYSTEM_INFO]
+#[TOUCH]
+#[TOUCH_TRACK]
+#[VIBRATOR]
+#[WIFI]
+#[WIFI_2_4G]
+#[WIFI_5G]
+-->
+
+<cfg>
+    <!-- MMI module config for android
+        * params
+        *    autorun_enable:
+        *       0-disable the module whos "automation=1" will not start up automatically after boot up ;
+        *       1-enable  the module whos "automation=1" will  start up automatically after boot up ;
+        *    skip_if_autorun_passed:
+        *       0-not skip passed module;
+        *       1-skip passe module;
+        *
+    *-->
+    <os type="android">
+        <module name="MMI"
+            debug_enable="1"
+            sys_backlight="/sys/class/leds/lcd-backlight/brightness"
+            misc_dev="/dev/block/bootdevice/by-name/misc"
+            language="en"
+            font_size="48"
+            item_display_per_page="10"
+            test_mode="ui"
+            autorun_enable="0"
+            skip_if_autorun_passed="0"
+            layout="main.xml"/>
+    </os>
+
+    <!-- MMI module config for android wear -->
+    <os type="android_wear">
+        <module name="MMI"
+                debug_enable="1"
+                sys_backlight="/sys/class/leds/lcd-backlight/brightness"
+                misc_dev="/dev/block/bootdevice/by-name/misc"
+                language="en"
+                font_size="26"
+                item_display_per_page="3"
+                test_mode="ui"
+                autorun_enable="0"
+                skip_if_autorun_passed="0"
+                layout="main_wear.xml"
+                home_screens="main_wear.xml;home_extra_function.xml;"/>
+    </os>
+
+    <!-- default config for UI mode -->
+    <modules>
+       
+
+
+        <!--  **************************Power method support****************************************** -->
+        <!-- suspend: system will enter suspend after unplug USB cable -->
+        <!--  ***************************************************************************************** -->
+        <module name="POWER_SUSPEND"
+                lib_name="mmi_power.so"
+                enable="1"
+                automation="0"
+                display_name="power_suspend"
+                layout="layout_power.xml"
+                parameter="method:suspend;"/>
+    </modules>
+
+    <!-- default specified config for PCBA mode,will over write the default value -->
+    <modules_pcba>
+       
+
+
+
+        <!--  **************************Power method support****************************************** -->
+        <!-- suspend: system will enter suspend after unplug USB cable -->
+        <!--  ***************************************************************************************** -->
+        <module name="POWER_SUSPEND"
+                lib_name="mmi_power.so"
+                enable="1"
+                automation="0"
+                display_name="power_suspend"
+                layout="layout_power.xml"
+                parameter="method:suspend;"/>
+    </modules_pcba>
+
+    <!--default enable modules for ui mode -->
+    <variable name="ui_modules">
+    
+
+                POWER_SUSPEND</variable>
+
+    <!--default enable modules for pcba mode -->
+    <variable name="pcba_modules">
+             
+
+                POWER_SUSPEND</variable>
+
+    <!-- example config -->
+    <soc os_type="android" name="example" subtype_id="example">
+        <!-- platform default value for UI mode,
+            will over write the default value if set, will use the default value if not set -->
+        <modules>
+            <module name="BUTTON_BACKLIGHT"
+                    parameter="example"/>
+        </modules>
+        <!-- platform default value for PCBA mode,
+            will over write the default value if set, will use the default value if not set -->
+        <modules_pcba>
+            <module name="BUTTON_BACKLIGHT"
+                    parameter="example"/>
+        </modules_pcba>
+
+        <!-- provide the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},NFC</enable_modules>
+        <!-- provide the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- platform version specified disable modules list for UI mode, the specified modules be disabled if set -->
+        <disable_modules platform_ver="*" mode="ui">NFC</disable_modules>
+        <!-- platform version specified disable modules list for PCBA mode, the specified modules be disabled if set -->
+        <disable_modules platform_ver="*" mode="pcba">NFC</disable_modules>
+    </soc>
+
+    <!-- MSM8909 specify config -->
+    <soc os_type="android" name="MSM8909" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="FLASHLIGHT"
+                    lib_name="mmi_camera.so"
+                    parameter="type:flash;delay:2000;"/>
+            <module name="AUDIO_HANDSET_PLAYTONE"
+                    parameter="tc:2;volume:80;duration:8;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:1;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:8;"/>
+            <module name="TOUCH"
+                    parameter="mode:diagonal;"/>
+            <module name="FM"
+                    parameter="tc:50;volume:50;duration:10;tune:103.7;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules}</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- APQ8009 android wear specify config -->
+    <soc os_type="android_wear" name="APQ8009W" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="KEY"
+                    parameter="keys:volumeup,volumedown,power;"/>
+            <module name="AUDIO_HANDSET_PLAYTONE"
+                    parameter="tc:2;volume:80;duration:8;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:1;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:8;"/>
+            <module name="TOUCH"
+                    parameter="mode:diagonal;"/>
+            <module name="FM"
+                    parameter="tc:50;volume:50;duration:10;tune:103.7;"/>
+        </modules>
+
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules}</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui">BUTTON_BACKLIGHT,LED_RED,LED_GREEN,LED_BLUE,FLASHLIGHT,CAMERA_BACK_MAIN,CAMERA_FRONT,SDCARD,SIMCARD2,TELEPHONE</disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8909 android wear specify config -->
+    <soc os_type="android_wear" name="MSM8909W" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="KEY"
+                    parameter="keys:volumeup,volumedown,power;"/>
+            <module name="AUDIO_HANDSET_PLAYTONE"
+                    parameter="tc:2;volume:80;duration:8;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:1;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:8;"/>
+            <module name="TOUCH"
+                    parameter="mode:diagonal;"/>
+            <module name="FM"
+                    parameter="tc:50;volume:50;duration:10;tune:103.7;"/>
+        </modules>
+
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules}</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui">BUTTON_BACKLIGHT,LED_RED,LED_GREEN,LED_BLUE,FLASHLIGHT,CAMERA_BACK_MAIN,CAMERA_FRONT,SDCARD,SIMCARD2,TELEPHONE</disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8916 specify config -->
+    <soc os_type="android" name="MSM8916" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="FLASHLIGHT"
+                    lib_name="mmi_camera.so"
+                    parameter="type:flash;delay:2000;"/>
+            <module name="AUDIO_HANDSET_PLAYTONE"
+                    parameter="tc:2;volume:80;duration:8;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:1;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:8;"/>
+            <module name="FM"
+                    parameter="tc:50;volume:50;duration:10;tune:103.7;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules}</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8920 specify config -->
+    <soc os_type="android" name="MSM8920" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="GSENSOR"
+                    parameter="type:accelermeter;delay:200;data_type:0;test_type:5;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="GSENSOR"
+                    parameter="type:accelermeter;delay:200;data_type:0;test_type:5;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},FLASHLIGHT_1,AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8937 specify config -->
+    <soc os_type="android" name="MSM8937" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},FLASHLIGHT_1,AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8952 specify config -->
+    <soc os_type="android" name="MSM8952" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="FLASHLIGHT"
+                    lib_name="mmi_camera.so"
+                    parameter="type:flash;delay:2000;"/>
+            <module name="AUDIO_HANDSET_PLAYTONE"
+                    parameter="tc:2;volume:80;duration:8;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:1;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:8;"/>
+            <module name="FM"
+                    parameter="tc:50;volume:50;duration:10;tune:103.7;"/>
+        </modules>
+
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},CAMERA_BACK_AUX,SMB</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8976 specify config -->
+    <soc os_type="android" name="MSM8976" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="FLASHLIGHT"
+                    lib_name="mmi_camera.so"
+                    parameter="type:flash;delay:2000;"/>
+            <module name="AUDIO_HANDSET_PLAYTONE"
+                    parameter="tc:2;volume:80;duration:8;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:1;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:8;"/>
+            <module name="FM"
+                    parameter="tc:50;volume:50;duration:10;tune:103.7;"/>
+        </modules>
+
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="tc:15;volume:50;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_SPEAKER_PLAYTONE"
+                    parameter="tc:8;volume:80;duration:3;file:/system/etc/mmi/qualsound.wav;"/>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},CAMERA_BACK_AUX,SMB</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8953 specify config -->
+    <soc os_type="android" name="MSM8953" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="FLASHLIGHT"
+                    lib_name="mmi_camera.so"
+                    parameter="type:flash;delay:2000;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8996 specify config -->
+    <soc os_type="android" name="MSM8996" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD,SMB</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- MSM8998 specify config -->
+    <soc os_type="android" name="MSM8998" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="type:loopback;tc:225;volume:70;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_TOP_MIC_RECORD"
+                    parameter="type:mic;tc:20;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1;"/>
+            <module name="GSENSOR"
+                    parameter="type:accelermeter;delay:200;data_type:0;test_type:5;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},FLASHLIGHT_1,AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD,HSENSOR,WIFI_2_4G,WIFI_5G</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules},HSENSOR</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- APQ8998 specify config -->
+    <soc os_type="android" name="APQ8998" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="type:loopback;tc:225;volume:70;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_TOP_MIC_RECORD"
+                    parameter="type:mic;tc:20;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1;"/>
+            <module name="GSENSOR"
+                    parameter="type:accelermeter;delay:200;data_type:0;test_type:5;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},FLASHLIGHT_1,AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD,HSENSOR,WIFI_2_4G,WIFI_5G</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules},HSENSOR</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- QRD8905 specify config -->
+    <soc os_type="android" name="QRD8905" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},KEYPAD</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules},KEYPAD</enable_modules>
+
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- SDM660 specify config -->
+    <soc os_type="android" name="SDM660" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="type:loopback;tc:225;volume:70;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:19;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1;"/>
+            <module name="AUDIO_NOISE_MIC_RECORD"
+                    parameter="type:mic;tc:16;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1"/>
+            <module name="AUDIO_TOP_MIC_RECORD"
+                    parameter="type:mic;tc:21;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},FLASHLIGHT_1,AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD,CAMERA_BACK_AUX</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+    <!-- SDM630 specify config -->
+    <soc os_type="android" name="SDM630" subtype_id="*">
+        <!-- platform default value for UI mode -->
+        <modules>
+            <module name="AUDIO_HEADSET_MIC_HEADSET_SPEAKER_LOOPBACK"
+                    parameter="type:loopback;tc:225;volume:70;duration:8;file:/data/ftm_pcm_record.wav;"/>
+            <module name="AUDIO_PRIMARY_MIC_RECORD"
+                    parameter="type:mic;tc:19;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1;"/>
+            <module name="AUDIO_NOISE_MIC_RECORD"
+                    parameter="type:mic;tc:16;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1"/>
+            <module name="AUDIO_TOP_MIC_RECORD"
+                    parameter="type:mic;tc:18;volume:80;duration:3;file:/persist/FTM_AP/ftm_pcm_record.wav;tc_play:1;"/>
+        </modules>
+        <!-- platform default value for PCBA mode -->
+        <modules_pcba>
+        </modules_pcba>
+        <!-- the enable module list for UI mode -->
+        <enable_modules mode="ui">${ui_modules},FLASHLIGHT_1,AUDIO_NOISE_MIC_RECORD,AUDIO_TOP_MIC_RECORD</enable_modules>
+        <!-- the enable module list for PCBA mode -->
+        <enable_modules mode="pcba">${pcba_modules}</enable_modules>
+        <!-- the disable module list for UI mode -->
+        <disable_modules platform_ver="*" mode="ui"></disable_modules>
+        <!-- the disable module list for PCBA mode -->
+        <disable_modules platform_ver="*" mode="pcba"></disable_modules>
+    </soc>
+
+</cfg>
+  <!--  liqiang@wind-mobi.com 20171204 end -->
