@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <job_id />
+  <config_version>2</config_version>
+  <string-array name="hidden_system_packages">
+    <item>com.amazon.mShop.android.shopping</item>
+    <item>com.asus.providers.partnerhomepage</item>
+    <item>com.ecareme.asuswebstorage</item>
+    <item>com.telecomitalia.cubomusica</item>
+    <item>it.telecomitalia.centodiciannove</item>
+    <item>it.telecomitalia.cubovision</item>
+    <item>it.telecomitalia.selectedbytim</item>
+    <item>it.telecomitalia.timpersonal</item>
+    <item>it.tim.timmynews</item>
+  </string-array>
+</resources>
