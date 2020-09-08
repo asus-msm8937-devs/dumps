@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites>
+    <!-- Screen 1 -->
+    <appwidget
+        className="com.asus.weathertime.WeatherWidgetProviderPhone"
+        packageName="com.asus.weathertime"
+        screen="1"
+        spanX="5"
+        spanY="1"
+        x="0"
+        y="0" />
+
+    <appwidget
+        className="com.google.android.googlequicksearchbox.SearchWidgetProvider"
+        packageName="com.google.android.googlequicksearchbox"
+        screen="1"
+        spanX="5"
+        spanY="1"
+        x="0"
+        y="1" />
+
+    <!-- MyTIM Mobile -->
+    <favorite
+        className="it.telecomitalia.centodiciannove.ui.activity.refactoring.chooser.ChooserActivity"
+        packageName="it.telecomitalia.centodiciannove"
+        screen="1"
+        x="0"
+        y="3" />
+
+    <folder
+        screen="1"
+        title="TIM"
+        x="4"
+        y="3" >
+        <!-- MyTIM Fisso -->
+        <favorite
+            className="it.telecomitalia.centoottantasette.StartClient187"
+            packageName="it.telecomitalia.centoottantasette" />
+        <!-- Serie A TIM -->
+        <favorite
+            className="it.telecomitalia.calcio.Activity.Splash"
+            packageName="it.telecomitalia.calcio" />
+        <!-- TIMmusic -->
+        <favorite
+            className="com.telecomitalia.timmusic.view.splash.SplashActivity"
+            packageName="com.telecomitalia.cubomusica" />
+        <!-- TIMvision -->
+        <favorite
+            className="it.telecomitalia.cubovision.ui.splash_screen.SplashActivity"
+            packageName="it.telecomitalia.cubovision" />
+        <!-- TIMreading -->
+        <favorite
+            className="it.telecomitalia.biblet.activity.BooksActivity"
+            packageName="it.telecomitalia.biblet" />
+        <!-- TIMgames Mobile -->
+        <favorite
+            className="com.mondiamedia.android.app.games.activities.SplashActivity"
+            packageName="it.telecomitalia.cubogiochi" />
+        <!-- SelectedbyTim = Top App -->
+        <favorite
+            className="it.telecomitalia.selectedbytim.activity.PopupActivity"
+            packageName="it.telecomitalia.selectedbytim" />
+    </folder>
+
+    <folder
+        screen="1"
+        title="Google"
+        x="0"
+        y="4" >
+
+        <!-- Search -->
+        <favorite
+            className="com.google.android.googlequicksearchbox.SearchActivity"
+            packageName="com.google.android.googlequicksearchbox" />
+        <!-- Gmail -->
+        <favorite
+            className="com.google.android.gm.ConversationListActivityGmail"
+            packageName="com.google.android.gm" />
+        <!-- Maps -->
+        <favorite
+            className="com.google.android.maps.MapsActivity"
+            packageName="com.google.android.apps.maps" />
+        <!-- YouTube -->
+        <favorite
+            className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"
+            packageName="com.google.android.youtube" />
+        <!-- Drive -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs" />
+        <!-- Play music -->
+        <favorite
+            className="com.android.music.activitymanagement.TopLevelActivity"
+            packageName="com.google.android.music" />
+        <!-- Play Movies -->
+        <favorite
+            className="com.google.android.youtube.videos.EntryPoint"
+            packageName="com.google.android.videos" />
+        <!-- Duo -->
+        <favorite
+            className="com.google.android.apps.tachyon.MainActivity"
+            packageName="com.google.android.apps.tachyon" />
+        <!-- Photos -->
+        <favorite
+            className="com.google.android.apps.photos.home.HomeActivity"
+            packageName="com.google.android.apps.photos" />
+        <!-- Google Calendar -->
+        <favorite
+            className="com.android.calendar.AllInOneActivity"
+            packageName="com.google.android.calendar" />
+        <!-- Docs -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.docs" />
+        <!-- Sheets -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.sheets" />
+        <!-- Slides -->
+        <favorite
+            className="com.google.android.apps.docs.app.NewMainProxyActivity"
+            packageName="com.google.android.apps.docs.editors.slides" />
+        <!-- Keeps -->
+        <favorite
+            className="com.google.android.keep.activities.BrowseActivity"
+            packageName="com.google.android.keep" />
+    </folder>
+
+    <!-- Google Play Store -->
+    <favorite
+        className="com.android.vending.AssetBrowserActivity"
+        packageName="com.android.vending"
+        screen="1"
+        x="1"
+        y="4" />
+
+    <!-- PowerSaver -->
+    <favorite
+        className="com.asus.powersaver.PowerSaverSettings"
+        packageName="com.asus.powersaver"
+        screen="1"
+        x="2"
+        y="4" />
+
+    <!-- Gallery -->
+    <favorite
+        className="com.asus.gallery.app.EPhotoActivity"
+        packageName="com.asus.gallery"
+        screen="1"
+        x="3"
+        y="4" />
+
+    <!-- SelfieMaster -->
+    <favorite
+        className="com.asus.selfiemaster.SelfieMasterActivity"
+        packageName="com.asus.selfiemaster"
+        screen="1"
+        x="4"
+        y="4" />
+
+    <!-- Screen 2 -->
+    <appwidget
+        className="it.telecomitalia.selectedbytim.WidgetProviderICS"
+        packageName="it.telecomitalia.selectedbytim"
+        screen="2"
+        spanX="5"
+        spanY="2"
+        x="0"
+        y="0" />
+    <folder
+        screen="2"
+        title="ASUS"
+        x="0"
+        y="4" >
+        <!-- Calculator -->
+        <favorite
+            className="com.asus.calculator.Calculator"
+            packageName="com.asus.calculator" />
+        <!-- Clock -->
+        <favorite
+            className="com.asus.deskclock.DeskClock"
+            packageName="com.asus.deskclock" />
+        <!-- Do-It-Later no apk -->
+        <!-- File Manager -->
+        <favorite
+            className="com.asus.filemanager.activity.FileManagerActivity"
+            packageName="com.asus.filemanager" />
+        <!-- Laser Ruler -->
+        <favorite
+            className="com.asus.laserruler.LaserRulerActivity"
+            packageName="com.asus.laserruler" />
+        <!-- MiniMovie -->
+        <favorite
+            className="com.asus.microfilm.tab.TabMainActivity"
+            packageName="com.asus.microfilm" />
+        <!-- PhotoCollage -->
+        <favorite
+            className="com.asus.collage.app.CollageMainTabActivity"
+            packageName="com.asus.collage" />
+        <!-- Sound Recorder -->
+        <favorite
+            className="com.asus.soundrecorder.AsusRecorder"
+            packageName="com.asus.soundrecorder" />
+        <!-- Weather -->
+        <favorite
+            className="com.asus.weathertime.WeatherTimeSettings"
+            packageName="com.asus.weathertime" />
+        <!-- Webstorage -->
+        <favorite
+            className="net.yostore.aws.view.common.SplashActivity"
+            packageName="com.ecareme.asuswebstorage" />
+        <!-- ZenFit -->
+        <favorite
+            className="com.asus.wellness.EntrySelector"
+            packageName="com.asus.wellness" />
+        <!-- ZenCircle -->
+        <favorite
+            className="com.asus.zencircle.EntryActivity"
+            packageName="com.asus.zencircle" />
+    </folder>
+
+    <!-- MobileManager -->
+    <favorite
+        className="com.asus.mobilemanager.entry.FunctionActivity"
+        packageName="com.asus.mobilemanager"
+        screen="2"
+        x="1"
+        y="4" />
+
+    <!-- Facebook -->
+    <favorite
+        className="com.facebook.katana.LoginActivity"
+        packageName="com.facebook.katana"
+        screen="2"
+        x="2"
+        y="4" />
+
+    <!-- Facebook Messenger -->
+    <favorite
+        className="com.facebook.orca.auth.StartScreenActivity"
+        packageName="com.facebook.orca"
+        screen="2"
+        x="3"
+        y="4" />
+
+    <!-- Instagram -->
+    <favorite
+        className="com.instagram.android.activity.MainTabActivity"
+        packageName="com.instagram.android"
+        screen="2"
+        x="4"
+        y="4" />
+
+    <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
+    <favorite
+        className="com.android.contacts.activities.DialtactsActivity"
+        container="-103"
+        packageName="com.asus.contacts"
+        screen="0"
+        x="0"
+        y="0" />
+    <favorite
+        className="com.google.android.apps.messaging.ui.ConversationListActivity"
+        container="-103"
+        packageName="com.google.android.apps.messaging"
+        screen="1"
+        x="1"
+        y="0" />
+    <favorite
+        className="com.google.android.apps.chrome.Main"
+        container="-103"
+        packageName="com.android.chrome"
+        screen="3"
+        x="3"
+        y="0" />
+    <favorite
+        className="com.asus.camera.CameraApp"
+        container="-103"
+        packageName="com.asus.camera"
+        screen="4"
+        x="4"
+        y="0" />
+
+</favorites>

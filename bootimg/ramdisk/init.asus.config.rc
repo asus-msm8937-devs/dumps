@@ -1,0 +1,125 @@
+#
+# file create by liunianliang for asus
+#
+#
+on early-init
+    mkdir /APD 0775 system system
+    mkdir /ADF 0775 system system
+    mkdir /asdf 0777 system system
+    mkdir /priv 0775 system system
+    mkdir /factory 0775 system system
+
+on fs
+    wait /dev/block/bootdevice/by-name/ADF
+    mount ext4 /dev/block/bootdevice/by-name/ADF /ADF nosuid nodev barrier=1
+    restorecon_recursive /ADF
+
+    wait /dev/block/bootdevice/by-name/APD
+    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid nodev barrier=1
+    restorecon_recursive /APD
+
+    wait /dev/block/bootdevice/by-name/asdf
+    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev barrier=1
+
+    wait /dev/block/bootdevice/by-name/priv
+    mount ext4 /dev/block/bootdevice/by-name/priv /priv nosuid nodev barrier=1
+
+    wait /dev/block/bootdevice/by-name/factory
+    mount ext4 /dev/block/bootdevice/by-name/factory /factory nosuid nodev barrier=1
+    restorecon_recursive /factory
+
+on post-fs
+    chown system system /APD
+    chown system system /APD/DemoContent.txt
+    chown system system /APD/config.xml
+    chown system system /APD/Media
+    chown system system /APD/Media/m_01.jpg
+    chown system system /APD/Media/m_02.jpg
+    chown system system /APD/Media/m_03.jpg
+    chown system system /APD/Media/m_04.jpg
+    chown system system /APD/Media/m_05.jpg
+    chown system system /APD/Media/m_06.jpg
+    chown system system /APD/Media/m_07.jpg
+    chown system system /APD/Media/m_08.jpg
+    chown system system /APD/Media/m_09.jpg
+    chown system system /APD/Media/m_10.jpg
+    chown system system /APD/Media/m_11.jpg
+    chown system system /APD/Media/m_12.jpg
+    chown system system /APD/Media/m_13.jpg
+    chown system system /APD/Media/m_14.jpg
+    chown system system /APD/Media/m_15.jpg
+    chown system system /APD/Movies
+    chown system system /APD/Movies/demo-video-screensaver.mp4
+    chown system system /APD/Movies/demo-video-screensaver_fr_FR.srt
+    chown system system /APD/Movies/demo-video-screensaver_hu_HU.srt
+    chown system system /APD/Movies/demo-video-screensaver_in_ID.srt
+    chown system system /APD/Movies/demo-video-screensaver_it_IT.srt
+    chown system system /APD/Movies/demo-video-screensaver_ja_JP.srt
+    chown system system /APD/Movies/demo-video-screensaver_pt_PT.srt
+    chown system system /APD/Movies/demo-video-screensaver_vi_VN.srt
+    chown system system /ADF
+    chown system system /ADF/*/*
+    chown system system /factory
+    chown system system /APD/md5CheckValue.md5 #add by yangzhiyuan for permission
+    chmod 0775 /APD/md5CheckValue.md5
+    chmod 0775 /ADF
+    chmod 0775 /ADF/*/*
+    chmod 0775 /APD
+    chmod 0775 /APD/DemoContent.txt
+    chmod 0775 /APD/config.xml
+    chmod 0775 /APD/Media
+    chmod 0775 /APD/Media/m_01.jpg
+    chmod 0775 /APD/Media/m_02.jpg
+    chmod 0775 /APD/Media/m_03.jpg
+    chmod 0775 /APD/Media/m_04.jpg
+    chmod 0775 /APD/Media/m_05.jpg
+    chmod 0775 /APD/Media/m_06.jpg
+    chmod 0775 /APD/Media/m_07.jpg
+    chmod 0775 /APD/Media/m_08.jpg
+    chmod 0775 /APD/Media/m_09.jpg
+    chmod 0775 /APD/Media/m_10.jpg
+    chmod 0775 /APD/Media/m_11.jpg
+    chmod 0775 /APD/Media/m_12.jpg
+    chmod 0775 /APD/Media/m_13.jpg
+    chmod 0775 /APD/Media/m_14.jpg
+    chmod 0775 /APD/Media/m_15.jpg
+    chmod 0775 /APD/Movies
+    chmod 0775 /APD/Movies/demo-video-screensaver.mp4
+    chmod 0775 /APD/Movies/demo-video-screensaver_fr_FR.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_hu_HU.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_in_ID.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_it_IT.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_ja_JP.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_pt_PT.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_vi_VN.srt
+    chmod 0775 /factory
+    chmod 0666 /factory/battery_life
+    chmod 0666 /factory/battery_table
+    chmod 0666 /factory/battery_table_poweroff
+    chown system system /factory/battery_life
+    chown system system /factory/battery_table
+    chown system system /factory/battery_table_poweroff
+
+on property:persist.radio.multisim.config=dsds
+    setprop ro.system.simtype 2
+    write /data/data/pcbid_status 000001b
+
+on property:persist.radio.multisim.config=dsda
+    setprop ro.system.simtype 2
+    write /data/data/pcbid_status 000001b
+
+on property:persist.radio.multisim.config=tsts
+    setprop ro.system.simtype 2
+    write /data/data/pcbid_status 000001b
+
+on property:persist.radio.multisim.config=ss
+    setprop ro.system.simtype 1
+    write /data/data/pcbid_status 000001a
+# Add by liunianliang for ausu demo app,end
+
+# Add by liunianliang for show fuse status,2017.08.22 begin
+on property:ro.boot.fuse_status=1
+    setprop atd.fuse.ready TRUE
+on property:ro.boot.fuse_status=0
+    setprop atd.fuse.ready FALSE
+# End

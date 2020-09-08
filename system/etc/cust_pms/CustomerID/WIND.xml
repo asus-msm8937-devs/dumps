@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <job_id />
+  <config_version>2</config_version>
+  <string-array name="hidden_system_packages">
+    <item>com.asus.brapp</item>
+    <item>com.asus.ia.asusapp</item>
+    <item>com.asus.providers.partnerhomepage</item>
+    <item>com.generalmobi.go2pay</item>
+    <item>com.monotype.android.font.mfinancehkbold</item>
+    <item>com.monotype.android.font.myuppyhkmedium</item>
+    <item>com.monotype.android.font.myinghei18030m</item>
+    <item>jp.co.daj.consumer.ifilter.aflauncher</item>
+    <item>jp.ebookjapan.ebireader</item>
+    <item>id.co.babe</item>
+    <item>com.atok.mobile.im.asus.service</item>
+    <item>com.ecareme.asuswebstorage</item>
+    <item>com.LogiaGroup.LogiaDeck</item>
+    <item>it.telecomitalia.selectedbytim</item>
+    <item>it.telecomitalia.biblet</item>
+    <item>it.vodafone.my190</item>
+    <item>it.telecomitalia.centodiciannove</item>
+    <item>it.telecomitalia.centoottantasette</item>
+    <item>it.telecomitalia.calcio</item>
+    <item>it.telecomitalia.cubogiochi</item>
+    <item>it.telecomitalia.cubovision</item>
+    <item>com.telecomitalia.cubomusica</item>
+    <item>it.telecomitalia.timpersonal</item>
+    <item>com.amazon.mShop.android.shopping</item>
+    <item>com.amazon.appmanager</item>
+    <item>com.singtel.mysingtel</item>
+  </string-array>
+</resources>

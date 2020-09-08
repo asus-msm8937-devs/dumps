@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+    <package title="live.ly-live video streaming">
+        <name>com.zhiliaoapp.lively</name>
+    </package>
+    <package title="Uplive">
+        <name>com.asiainno.uplive</name>
+    </package>
+    <package title="17- Live Video Streaming">
+        <name>com.machipopo.media17</name>
+    </package>
+    <package title="MeMe直播 - 最佳Live主播視訊及社交聊天平台">
+        <name>chat.meme.inke</name>
+    </package>
+    <package title="Chums Live">
+        <name>com.chumslive.android</name>
+    </package>
+    <package title="斗鱼">
+        <name>air.tv.douyu.android</name>
+    </package>
+    <package title="虎牙直播">
+        <name>com.duowan.kiwi</name>
+    </package>
+    <package title="熊猫主播版">
+        <name>tv.panda.live.broadcast</name>
+    </package>
+    <package title="六间房">
+        <name>cn.v6.xiuchang</name>
+    </package>
+    <package title="YY">
+        <name>com.duowan.mobile</name>
+    </package>
+    <package title="网易CC">
+        <name>com.netease.cc</name>
+    </package>
+    <package title="映客">
+        <name>com.meelive.ingkee</name>
+    </package>
+</packages>
